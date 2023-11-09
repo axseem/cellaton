@@ -3,7 +3,6 @@ package cellaton
 import (
 	"math/rand"
 	"slices"
-	"time"
 )
 
 type cell struct {
@@ -86,8 +85,8 @@ func (f *field) SetCells(cells [][]int) {
 	}
 }
 
-func (f *field) FillRand(density int) {
-	s := rand.NewSource(time.Now().UnixNano())
+func (f *field) FillRand(density int, seed int64) {
+	s := rand.NewSource(seed)
 	r := rand.New(s)
 
 	for y, row := range *f.GetCells() {

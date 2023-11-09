@@ -12,7 +12,7 @@ import (
 
 func main() {
 	field := cellaton.NewField(48, 24, rules.DayAndNight, neighborhood.Moore)
-	field.FillRand(50)
+	field.FillRand(50, time.Now().UnixNano())
 
 	for {
 		field.NextGen()
